@@ -1,0 +1,30 @@
+
+.header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .section {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 2px solid #ccc;
+    border-radius: 7px;
+    transition: background-color 0.3s ease;
+  }
+
+  .section:hover {
+    background-color: #7d7777;
+  }
+  
+  .section a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .section a.active {
+    font-weight: bold;
+  }
+  
