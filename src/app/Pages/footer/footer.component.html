@@ -4,11 +4,11 @@
       </button>
     <div>
         <ng-container *ngFor="let sheet of sheets; let i = index">
-            <button (click)="selectSheet(i)">{{ sheet.name }}
+            <button [ngClass]="{'active': i === activeSheetIndex}" (click)="selectSheet(i)">{{ sheet.name }}
                 <i class="fas fa-times" (click)="removeSheet(i)"></i>
             </button>
         </ng-container>
-    </div>     
+    </div>
   </footer>
   
   
