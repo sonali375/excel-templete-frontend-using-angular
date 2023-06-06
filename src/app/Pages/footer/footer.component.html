@@ -2,12 +2,15 @@
     <button class="add-sheet-btn" (click)="addSheet()" (mouseenter)="handleHover(true)" (mouseleave)="handleHover(false)">
         <i class="fas fa-plus" [ngClass]="{'active': isClicked, 'hover': isHovered}"></i>
       </button>
-    <div>
+    <div class="sheet-list">
         <ng-container *ngFor="let sheet of sheets; let i = index">
-            <button [ngClass]="{'active': i === activeSheetIndex}" (click)="selectSheet(i)">{{ sheet.name }}
+            <button *ngIf="sheets.length < 12" [ngClass]="[i === activeSheetIndex ? 'buttonActive':'']" class="button-class" (click)="selectSheet(i)">{{ sheet.name }}
                 <i class="fas fa-times" (click)="removeSheet(i)"></i>
             </button>
         </ng-container>
+    </div>
+    <div style="float:right" *ngIf="sheets.length > 12 ">
+        <span class="fa fa-ellipsis-v"></span>
     </div>
   </footer>
   

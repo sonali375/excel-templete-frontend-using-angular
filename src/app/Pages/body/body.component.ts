@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./body.component.css']
 })
 export class BodyComponent {
-  sheetIndex:any;
+  sheetNumber:any;
 
   getData(data:any){
-console.log(data);
-this.sheetIndex = data
+    console.log(data);
+    this.sheetNumber = data.sheet_number
   }
 }

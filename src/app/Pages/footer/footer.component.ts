@@ -4,6 +4,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 interface Sheet {
   name: string;
   content: string;
+  sheet_number: number;
 }
 
 @Component({
@@ -16,7 +17,7 @@ export class FooterComponent {
   isHovered: boolean = false;
   sheetNumber: number = 1;
   sheets: Sheet[] = [
-    { name: 'Sheet 1', content: 'Content for Sheet 1' }
+    { name: 'Sheet 1', content: 'Content for Sheet 1', sheet_number: 1 }
   ];
   @Output() updateSheet = new EventEmitter<any>();
   addSheet(): void {
@@ -34,7 +35,8 @@ export class FooterComponent {
     const sheetName = `Sheet ${sheetNumber}`;
     this.sheets.push({
       name: sheetName,
-      content: ''
+      content: '',
+      sheet_number: sheetNumber
     });
   }
   
@@ -45,7 +47,7 @@ export class FooterComponent {
     this.activeSheetIndex = index;
     const selectedSheet = this.sheets[index];
     this.selectedSheetContent = selectedSheet.content;
-    this.updateSheet.emit(index);
+    this.updateSheet.emit(selectedSheet);
   }
 
   removeSheet(index: number): void {
